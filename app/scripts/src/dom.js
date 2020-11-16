@@ -3,7 +3,7 @@ import md5 from 'crypto-js';
 
 function createGravatarUrl(username) {
     let userhash = md5(username);
-    return `http://www.gravatar.com/avatar/${username.toString()}`;
+    return `http://www.gravatar.com/avatar/${userhash.toString()}`;
 }
 
 export function promptForUsername() {

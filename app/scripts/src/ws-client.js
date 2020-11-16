@@ -14,9 +14,11 @@ function registerOpenHandler(handlerFunction) {
 
 function registerMessageHandler(handlerFunction) {
     socket.onmessage = (e) => {
-        console.log(`message: ${e.data}`);
-        let data = JSON.parse(e.data);
+        //console.log(`${e.data}`);
+        let d = e.data || `{"message":"nothing"}`;
+        let data = JSON.parse(d);
         handlerFunction(data);
+        
     };
 }
 
@@ -24,4 +26,4 @@ function sendMessage(payload) {
     socket.send(JSON.stringify(payload));
 }
 
-export default { init, registerOpenHandler, sendMessage };
+export default { init, registerOpenHandler, sendMessage, registerMessageHandler };

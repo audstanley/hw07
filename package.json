@@ -6,9 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
+    "websocket": "node websocket-server.js",
     "dev": "nodemon index.js",
-    "build": "browserify -d app/scripts/src/main.js -o app/scripts/dist/main.js",
-    "watchify": "watchify -v -d app/scripts/src/main.js -o app/scripts/dist/main.js"
+    "build": "parcel build --no-minify app/scripts/src/main.js -d app/scripts/dist/",
+    "watch": "parcel watch app/scripts/src/main.js -d app/scripts/dist/"
   },
   "browserify": {
     "transform": [
@@ -24,6 +25,7 @@
   "license": "MIT",
   "dependencies": {
     "parcel": "^1.12.4",
+    "parcel-bundler": "^1.12.4",
     "ws": "^7.3.1"
   },
   "devDependencies": {

@@ -7,6 +7,9 @@ const extractFilePath = (url) => {
         console.log(filename);
     }
     let filepath = path.resolve(__dirname, 'app', filename);
+    if (filename === 'main.js.map') {
+        return path.resolve(__dirname, 'app/scripts/dist', 'main.js.map');
+    }
     return filepath;
 };
 
